@@ -14,19 +14,19 @@ router.post('/add', jsonParser, (req: Request, res: Response, next: NextFunction
     addTodo(req, res, next);
 });
 
+router.get('/add', (req: Request, res: Response, next: NextFunction) => {
+    const todo = req.query.todo;
+    addTodoGet((todo as string), res, next);
+});
+
 
 router.get('/list', jsonParser, (req: Request, res: Response, next: NextFunction) => {
     getTasks(req, res, next);
 });
 
-router.get('/items', jsonParser, (req: Request, res: Response, next: NextFunction) => {
-    getTasks(req, res, next);
-});
 
 router.post('/activTasks', (req: Request, res: Response, next: NextFunction) => {
-    const todo = req.query.todo;
     activeTasks(res, next);
-
 });
 
 
