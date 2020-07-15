@@ -14,7 +14,9 @@ const checkedChange = async (req: Request, res: Response, next: NextFunction) =>
     }
 
     try {
-        await checkedUpdate(id, checked);
+        const checkedUpd = await checkedUpdate(id, checked);
+        console.log(checkedUpd);
+        res.send('OK');
     }
     catch{
         return next(createError(403, 'checkedUpdate error'))
